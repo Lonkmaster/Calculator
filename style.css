@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 100vw;
+    justify-content: center;
+    align-content: center;
+}
+
+
+
+.keypad {
+    width: 200px;
+    height: 400px;
+    border: solid 2px black;
+    background-color: rgb(206, 218, 223);
+}
+
+.stretch {
+    display: flex;
+    justify-content: center;
+}
+
+.currentNum{
+    display: flex;
+    justify-content: center ;
+}
+
+.lastNumDisplay {
+    display: flex;
+    justify-content: end;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid;
+    width: 200px;
+    height: 100px;
+    background-color: rgb(206, 218, 223);
+}
+
+#flexContainer {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-direction: column;
+    background-color: grey;
+    border: 2px solid;
+    border-radius: 10px;
+    height: 400px;
+    padding: 25px;
+    width: 220px;
+    text-align: center;
+}

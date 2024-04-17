@@ -2,13 +2,38 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Etch-a-Sketch!</title>
+        <title>Calculator</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        
-
-
+        <div class="stretch"> </div>
+        <div id="flexContainer"> 
+            <div class="screen"> 
+                <div class="lastNumDisplay"> </div>
+                <div class="currentNum"> </div>
+            </div>
+            <div class="keypad">
+                <button class="numberBtns" value="0"> 0</button>
+                <button class="numberBtns" value="1"> 1</button>
+                <button class="numberBtns" value="2"> 2</button>
+                <button class="numberBtns" value="3"> 3</button>
+                <button class="numberBtns" value="4"> 4</button>
+                <button class="numberBtns" value="5"> 5</button>
+                <button class="numberBtns" value="6"> 6</button>
+                <button class="numberBtns" value="7"> 7</button>
+                <button class="numberBtns" value="8"> 8</button>
+                <button class="numberBtns" value="9"> 9</button>
+                <div class="operator"> 
+                    <button class="operatorBtn" id="addition" value="+"> +</button>
+                    <button class="operatorBtn" id="subtraction" value="-"> -</button>
+                    <button class="operatorBtn" value="*"> *</button>
+                    <button class="operatorBtn" value="/"> /</button>
+                    <button class="operatorBtn" value="="> =</button>
+                    <button class="operatorBtn" > .</button>
+                    <button class="operatorBtn" id="clear"> C</button>
+                </div>
+            </div>
+        </div>
 
         <script src="javascript.js"> </script>
     </body>
