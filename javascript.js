@@ -18,16 +18,33 @@ const lastNumDisplay = document.querySelector(".lastNumDisplay")
 const addBtn = document.querySelector("#addition")
 const subBtn = document.querySelector("#subtraction")
 const clearBtn = document.querySelector("#clear")
+const equalBtn = document.querySelector(".equalBtn")
 
 clearBtn.addEventListener("click", () => {
+    numOne = ""
+    numTwo = ""
+    realVal = ""
+    setValue = []
+    lastNumDisplay.textContent = ""
+    numberDisplay.textContent = ""
 })
 
 for (let i = 0; i < numBtn.length; i++) {
     let currentBtn = numBtn[i]
     currentBtn.addEventListener("click", () => {
+        
+        let buttonVal = currentBtn.value
+        if (buttonVal === ".") {
+            for (let i = 0; i < setValue.length; i++) {
+                let cleanValue = setValue[i]
+                if (cleanValue === ".") {
+                    return
+                }
+            }
+        }
+        
         setValue.push(currentBtn.value)
         numberDisplay.textContent += currentBtn.value
-        console.log(setValue)
     })
 }
 
@@ -39,7 +56,7 @@ for (let i = 0; i < operatorBtn.length; i++) {
             let value = setValue[i]
             realVal += value
         }
-
+        
         if (realVal.length == 0 ) {
             if (typeof numOne !== "undefined") {
                 setOperator = currentOperatorBtn.value
@@ -48,30 +65,36 @@ for (let i = 0; i < operatorBtn.length; i++) {
             return;
         }
         
-        if (typeof numOne !== "undefined" && typeof numTwo !== "undefined") {
-            console.log(numOne)
-            console.log(numTwo)
-            setOperator = ""
-            realVal = operate(+numOne, setOperator, +numTwo)
-            console.log(realVal)
-
-        }
         if (typeof numOne === "undefined") {
             numOne = realVal
-            console.log(numOne) 
         } else {
             numTwo = realVal
             numOne = operate(+numOne, setOperator, +numTwo)
             realVal = numOne
         } 
-
+        
         setOperator = currentOperatorBtn.value
-        console.log(setOperator)
         setValue = []
         numberDisplay.textContent = ""
         lastNumDisplay.textContent = realVal + " " + setOperator
     })   
 }
+
+equalBtn.addEventListener("click", () => {
+    let realVal = ""
+    for(let i = 0; i < setValue.length; i++) {
+        let value = setValue[i]
+        realVal += value
+    }
+
+    realVal = operate(+numOne, setOperator, +realVal)
+    numOne = realVal
+    numberDisplay.textContent = ""
+    lastNumDisplay.textContent = realVal
+    setValue = []
+})
+
+function operate(numOne, operator ,numTwo) {
 
 function add(a, b) {
     return a + b
@@ -89,7 +112,6 @@ function division(a, b){
     return a / b
 }
 
-function operate(numOne, operator ,numTwo) {
     if (operator == addId) {
         return add(numOne, numTwo)
     }
