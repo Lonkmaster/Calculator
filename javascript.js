@@ -21,7 +21,7 @@ const clearBtn = document.querySelector("#clear")
 const equalBtn = document.querySelector(".equalBtn")
 
 clearBtn.addEventListener("click", () => {
-    numOne = ""
+    numOne = undefined
     numTwo = ""
     realVal = ""
     setValue = []
